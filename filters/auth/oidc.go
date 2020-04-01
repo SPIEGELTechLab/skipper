@@ -412,7 +412,7 @@ func (f *tokenOidcFilter) doDownstreamRedirect(ctx filters.FilterContext, oidcSt
 		Secure:   true,
 		HttpOnly: true,
 		MaxAge:   int(f.validity.Seconds()),
-		Domain:   extractDomainFromHost(getHost(ctx.Request())),
+		Domain:   getHost(ctx.Request()),
 	})
 	for _, cookie := range oidcCookies {
 		r.Header.Add("Set-Cookie", cookie.String())
