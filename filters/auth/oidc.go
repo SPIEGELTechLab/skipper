@@ -655,7 +655,7 @@ func (f *tokenOidcFilter) Request(ctx filters.FilterContext) {
 	}
 	// saving token info for chained filter
 	ctx.StateBag()[oidcClaimsCacheKey] = container
-	ctx.Request().Header.Add(oidcInfoHeader, string(oidcInfoJson))
+	//ctx.Request().Header.Add(oidcInfoHeader, string(oidcInfoJson))
 }
 
 func (f *tokenOidcFilter) tokenClaims(ctx filters.FilterContext, oauth2Token *oauth2.Token) (map[string]interface{}, string, error) {
