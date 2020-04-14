@@ -646,12 +646,6 @@ func (f *tokenOidcFilter) Request(ctx filters.FilterContext) {
 		return
 	}
 
-	oidcInfoJson, err := json.Marshal(container)
-	if err != nil {
-		log.Errorf("Failed to serialize OIDC info: %v.", err)
-		f.internalServerError(ctx)
-		return
-	}
 	// saving token info for chained filter
 	ctx.StateBag()[oidcClaimsCacheKey] = container
 }
