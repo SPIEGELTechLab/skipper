@@ -154,7 +154,7 @@ func (s *tokenOidcSpec) CreateFilter(args []interface{}) (filters.Filter, error)
 		verifier: provider.Verifier(&oidc.Config{
 			ClientID: sargs[1],
 		}),
-		validity:   1 * time.Hour,
+		validity:   -1,
 		cookiename: generatedCookieName,
 		encrypter:  encrypter,
 		compressor: newDeflatePoolCompressor(flate.BestCompression),
